@@ -1,0 +1,6 @@
+<?php
+
+$s_plugin_AdminSetPassword_change_password = 'Change password';
+$s_plugin_AdminSetPassword_password_length = 'Enter a password with at least 6 characters.';
+$s_plugin_AdminSetPassword_password_success = 'New password has been set successfully.';
+
