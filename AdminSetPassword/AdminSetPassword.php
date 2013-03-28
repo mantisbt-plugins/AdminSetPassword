@@ -10,7 +10,7 @@ Class AdminSetPasswordPlugin extends MantisPlugin {
 		$this->description 	= 'Displays an input field and button on "manage_user_edit_page" to change a users password directly.';
 		//$this->page		= 'config';
 
-		$this->version		= '0.1.1';
+		$this->version		= '0.1.2';
 		$this->requires		= array('MantisCore' => '1.2.14');
 		
 		$this->author		= 'eCola GmbH, Heiko Schneider-Lange';
@@ -32,15 +32,15 @@ Class AdminSetPasswordPlugin extends MantisPlugin {
 	function hooks() {
 		return array(
 				'EVENT_LAYOUT_CONTENT_BEGIN' => 'my_begin',
-				'EVENT_LAYOUT_CONTENT_END' => 'my_end',
+				//'EVENT_LAYOUT_CONTENT_END' => 'my_end',
 				'EVENT_LAYOUT_RESOURCES' => 'my_resources'
 			);
 	}
 	
 	function my_begin($p_event) {
 		if (!in_array($this->current_page, $this->cmv_pages)) return '';
-		$test = include ('pages/plugin_myview.php');
-		return $test;
+		include ('pages/plugin_myview.php');
+		return $p_javascript;
 	}
 
 	function my_end($p_event) {

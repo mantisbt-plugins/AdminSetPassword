@@ -1,5 +1,5 @@
 <?php
-echo "<script>
+$p_javascript = "<script>
 $(document).ready(function() {
 	//allow admin to set password directly
 	//include input for new password
@@ -27,4 +27,4 @@ $(document).ready(function() {
 	});
 });
 </script>";
-?>
+
