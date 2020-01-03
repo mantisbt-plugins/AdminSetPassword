@@ -19,4 +19,4 @@ No configuration options, no config page. And nothing to patch in your mantis in
 * Ready for MantisBT Version 2.* (older version leave inside his separate branch)
 
 ### 0.1.2
-* Last stable version, crerated by [Heiko Schneider-Lange}(https://github.com/langerheiko)
+* Last stable version, crerated by [Heiko Schneider-Lange](https://github.com/langerheiko)
