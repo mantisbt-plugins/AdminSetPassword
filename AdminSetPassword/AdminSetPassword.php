@@ -1,55 +1,64 @@
 <?php
 
-Class AdminSetPasswordPlugin extends MantisPlugin {
-	private $cmv_pages;
-	private $current_page;
-	
-	
-	function register() {
-		$this->name		= 'Admin Set Password';
-		$this->description 	= 'Displays an input field and button on "manage_user_edit_page" to change a users password directly.';
-		//$this->page		= 'config';
+Class AdminSetPasswordPlugin extends MantisPlugin
+{
 
-		$this->version		= '0.1.2';
-		$this->requires		= array('MantisCore' => '1.2.14');
-		
-		$this->author		= 'eCola GmbH, Heiko Schneider-Lange';
-		$this->contact		= 'hsl@ecola.com';
-		$this->url		= 'http://www.lebensmittel.de';
-	}
+    public $cmv_pages;
 
-	function config() {
-		return array();
-	}
-	
-	function init() {
-		$this->cmv_pages = array(
-			'manage_user_edit_page.php'
-		);
-		$this->current_page = basename($_SERVER['PHP_SELF']);
-	}
-	
-	function hooks() {
-		return array(
-				'EVENT_LAYOUT_CONTENT_BEGIN' => 'my_begin',
-				//'EVENT_LAYOUT_CONTENT_END' => 'my_end',
-				'EVENT_LAYOUT_RESOURCES' => 'my_resources'
-			);
-	}
-	
-	function my_begin($p_event) {
-		if (!in_array($this->current_page, $this->cmv_pages)) return '';
-		include ('pages/plugin_myview.php');
-		return $p_javascript;
-	}
+    public $current_page;
 
-	function my_end($p_event) {
-		if (!in_array($this->current_page, $this->cmv_pages)) return '';
-		return '';
-	}
+    /**
+     * Plugin registration information, some will be shown on plugin overview.
+     *
+     * The required minimum MantisBT version can be specified too.
+     */
+    public function register()
+    {
+        $this->name = 'Admin Set Password';
+        $this->description = 'Displays an input field and button on "manage_user_edit_page" to change a users password directly.';
+        $this->version = '1.0.0';
+        $this->requires = ['MantisCore' => '2.0.0'];
+        $this->url = 'https://github.com/bueltge/AdminSetPassword';
+    }
 
-	function my_resources($p_event) {
-		if (!in_array($this->current_page, $this->cmv_pages)) return '';
-		return '<script src="plugins/AdminSetPassword/resources/jquery-1.9.1.min.js"></script>';
-	}
+    /**
+     * Setup of plugin settings.
+     */
+    public function config()
+    {
+        return [];
+    }
+
+    /**
+     *  Overriding this function allows the plugin to set itself up,
+     *  include any necessary API‘s, declare or hook events, etc.
+     */
+    public function init()
+    {
+        $this->cmv_pages = [
+            'manage_user_edit_page.php',
+        ];
+        $this->current_page = basename($_SERVER['PHP_SELF']);
+    }
+
+    public function hooks()
+    {
+        return [
+            'EVENT_LAYOUT_CONTENT_BEGIN' => 'addPageContent'
+        ];
+    }
+
+    /**
+     * Include file on the user edit page that include fields vie javascript.
+     *
+     * @return string
+     */
+    public function addPageContent()
+    {
+        if (!in_array($this->current_page, $this->cmv_pages, true)) {
+            return '';
+        }
+        include('pages/plugin_myview.php');
+        return $p_javascript;
+    }
 }
