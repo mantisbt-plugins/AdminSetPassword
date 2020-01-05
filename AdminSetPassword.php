@@ -14,8 +14,8 @@ Class AdminSetPasswordPlugin extends MantisPlugin
      */
     public function register()
     {
-        $this->name = 'Admin Set Password';
-        $this->description = 'Displays an input field and button on "manage_user_edit_page" to change a users password directly.';
+        $this->name = plugin_lang_get( 'name' );
+        $this->description = plugin_lang_get( 'description' );
         $this->version = '1.0.0';
         $this->requires = ['MantisCore' => '2.0.0'];
         $this->url = 'https://github.com/mantisbt-plugins/AdminSetPassword';
