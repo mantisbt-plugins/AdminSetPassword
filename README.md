@@ -12,7 +12,7 @@ If you installed this plugin, you get a password input field on `manage_user_edi
 No configuration options, no config page. And nothing to patch in your mantis installation.
 
 ## Screenshot
-![AdminSetPassword Field](./AdminSetPassword/screenshot.png)
+![AdminSetPassword Field](./assets/screenshot.png)
 
 ## Changelog
 ### 1.0.0
