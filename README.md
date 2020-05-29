@@ -7,6 +7,21 @@ on the Edit User page.
 Works with MantisBT 2.*.
 Tested with MantisBT 2.22.0
 
+### WARNING: limited 2.x support
+
+This plugin is actually not 100% compatible with MantisBT 2.x, and in its 
+current state will only work properly in instances where 
+[Content Security Policy](https://content-security-policy.com/)
+is either disabled or customized to allow inline scripts, which is not
+recommended by the MantisBT team for obvious security reasons.
+
+Fixing this issue is a work in progress, but currently stalled due to lack
+of availability of the plugin's maintainer. Please refer to 
+[PR #2](https://github.com/mantisbt-plugins/AdminSetPassword/pull/2)
+for further details. If you are able to contribute to finalizing this work,
+your contribution will be appreciated.
+
+
 ### Unsupported Legacy Releases
 
 - MantisBT 1.2.x - use version [0.1.2](https://github.com/mantisbt-plugins/AdminSetPassword/releases/tag/v0.1.2)
